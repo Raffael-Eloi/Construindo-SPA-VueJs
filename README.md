@@ -1,18 +1,35 @@
+> Um projeto em Vue.js
+* [Descrição](#alurapic)
+* [Pré-requisitos](#pré-requisitos)
+* [Setup](#construindo-o-setup)
+* [Funcionalidades](#funcionalidades)
+* [Pré-visualização do projeto](#pré-visualização)
+
 # alurapic
+Construindo uma Single Page Aplication in VueJs com base no curso de Vue da alura. <br>
+O curso é ministrado pelo professor <a>Fábio Almeida </a>. 
 
-> A Vue.js project
 
-## Build Setup
+## Pré-requisitos
+Você deve ter o [nodejs](https://nodejs.org/en/) instalado e um editor de texto, nesse projeto foi usado o [Vscode](https://code.visualstudio.com/) .
+
+## Construindo o Setup
 
 ``` bash
-# install dependencies
+# instalando dependências
 npm install
 
-# serve with hot reload at localhost:8080
+# Para rodar o servidor com hot reaload (atualização automática) no endereço localhost:8080
 npm run dev
 
-# build for production with minification
+# Para subir para produção
 npm run build
 ```
+## Funcionalidades
++ [x] Single Page Aplication
++ [ ] CRUD 
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Pré-visualização
+(aqui vai ter um gif)
+
+Caso queira saber mais sobre o hot reload do vue você pode acessa [documentos para o vue-loader](http://vuejs.github.io/vue-loader).
