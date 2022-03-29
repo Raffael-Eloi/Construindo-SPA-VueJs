@@ -84,4 +84,8 @@ export default {
  painel-fade-leave-active -> quando o elememento está sendo removido
 
 */
+
+.painel-conteudo {
+  overflow: hidden; /* Não deixa algum elemento de dentro sair para fora */
+}
 </style>

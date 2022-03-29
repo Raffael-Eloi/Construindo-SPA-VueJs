@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <h1 class="centralizado">{{ titulo }}</h1>
@@ -18,7 +17,13 @@
         :key="foto.titulo"
       >
         <meu-painel :titulo="foto.titulo">
-          <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
+          <!-- na diretiva : -> argumento -->
+          <!-- na diretiva . -> modificador -->
+          <imagem-responsiva
+            v-meu-transform:scale.animate="1.1"
+            :url="foto.url"
+            :titulo="foto.titulo"
+          />
           <meu-botao
             tipo="button"
             rotulo="REMOVER"
@@ -37,13 +42,14 @@
 import Painel from "../shared/painel/Painel.vue";
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
+import transform from '../../directives/Transform';
 
 export default {
   data() {
     return {
       titulo: "Alurapic",
       fotos: [],
-      filtro: "",
+      filtro: ""
     };
   },
 
@@ -52,23 +58,27 @@ export default {
       if (this.filtro) {
         /* filtrar */
         let exp = new RegExp(this.filtro.trim(), "i"); // trim remove os espaços
-        return this.fotos.filter((foto) => exp.test(foto.titulo));
+        return this.fotos.filter(foto => exp.test(foto.titulo));
       } else {
         return this.fotos;
       }
-    },
+    }
   },
 
   methods: {
     remove(foto) {
       alert(`Remove a ${foto.titulo}`);
-    },
+    }
   },
 
   components: {
     "meu-painel": Painel,
     "imagem-responsiva": ImagemResponsiva,
-    "meu-botao": Botao,
+    "meu-botao": Botao
+  },
+
+  directives: {
+    'meu-transform': transform
   },
 
   created() {
@@ -80,13 +90,13 @@ export default {
 
     this.$http
       .get("http://localhost:3000/v1/fotos")
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(
-        (fotos) => (this.fotos = fotos),
-        (err) => console.log(err)
+        fotos => (this.fotos = fotos),
+        err => console.log(err)
       );
     //this.fotos é a propriedado do objeto - é o array definido acima
-  },
+  }
 };
 </script>
 
