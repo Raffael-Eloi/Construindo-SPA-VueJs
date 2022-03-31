@@ -8,7 +8,7 @@
 
 # alurapic
 Construindo uma Single Page Aplication in VueJs com base no curso de Vue da alura. <br>
-O curso é ministrado pelo professor <a>Fábio Almeida </a>. 
+O curso é ministrado pelo professor <a>Flávio Almeida </a>. 
 
 
 ## Pré-requisitos
