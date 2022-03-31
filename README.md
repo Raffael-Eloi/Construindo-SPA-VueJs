@@ -28,7 +28,7 @@ npm run build
 ```
 ## Funcionalidades
 + [x] Single Page Aplication
-+ [ ] CRUD 
++ [x] CRUD 
 
 ## Pré-visualização
 (aqui vai ter um gif)
