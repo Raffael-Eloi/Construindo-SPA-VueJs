@@ -2,13 +2,16 @@
 
   <div>
     <h1 class="centralizado">Cadastro</h1>
-    <h2 class="centralizado"></h2>
+    <h2 class="centralizado">{{ foto.titulo }}</h2>
+
+    <h2 v-if="foto._id" class="centralizado">Alterando</h2>
+    <h2 v-else class="centralizado">Incluindo</h2>
 
     <form @submit.prevent="grava()">
       <div class="controle">
         <label for="titulo">TÍTULO</label>
-        <input id="titulo" autocomplete="off" 
-        v-model.lazy="foto.titulo">
+          <input name="titulo" id="titulo" autocomplete="off" 
+          v-model="foto.titulo">
       </div>
 
       <!--
@@ -52,7 +55,7 @@
 
       <div class="centralizado">
         <meu-botao rotulo="GRAVAR" tipo="submit"/>
-        <router-link to="/"><meu-botao rotulo="VOLTAR" tipo="button"/></router-link>
+        <router-link :to="{name: 'home'}"><meu-botao rotulo="VOLTAR" tipo="button"/></router-link>
       </div>
 
     </form>
@@ -64,6 +67,7 @@
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
 import Botao from '../shared/botao/Botao.vue';
 import Foto from '../../domain/foto/Foto';
+import FotoService from '../../domain/foto/FotoService';
 
 export default {
   components: {
@@ -73,7 +77,8 @@ export default {
 
   data() {
     return {
-      foto: new Foto()
+      foto: new Foto(),
+      id: this.$route.params.id // podemos usar o $route porque estamos usando o vue router
     }
   },
 
@@ -90,13 +95,29 @@ export default {
       // console.log('enviar dados para a API');
       // this.limpaDados();
 
-      this.$http
-        .post('http://localhost:3000/v1/fotos', this.foto)
-        .then(() => this.foto = new Foto, err => console.log(err));
+      // this.$http
+      //   .post('v1/fotos', this.foto)
+      //   .then(() => this.foto = new Foto(), err => console.log(err));
+      // }
+
+      this.service
+      .cadastra(this.foto)
+      .then(() => {
+        if (this.id) this.$router.push({name: 'home'}) // route (pegar os params) != router (navegação do sistema)
+        this.foto = new Foto()
+      }, err => console.log(err))
+    }
+  },
+  created() {
+    // this.resource = this.$resource('v1/fotos{/id}');
+    this.service = new FotoService(this.$resource);
+
+    if (this.id) {
+      this.service.busca(this.id)
+      .then(foto => this.foto = foto);
     }
   }
 }
-
 </script>
 <style scoped>
 
