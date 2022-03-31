@@ -34,6 +34,6 @@ npm run build
 (aqui vai ter um gif)
 
 ## Links úteis
-Caso queira acessar a Alura clique [aqui](https://www.alura.com.br/) .<br>
-Caso queira acessar a documentação oficial do Vue clique [aqui](https://vuejs.org/) .<br> 
-Caso queira saber mais sobre o hot reload do vue você pode acessa [documentos para o vue-loader](http://vuejs.github.io/vue-loader).
+Acessar a Alura clique [aqui](https://www.alura.com.br/) .<br>
+Acessar a documentação oficial do Vue clique [aqui](https://vuejs.org/) .<br> 
+Saber mais sobre o hot reload do vue você pode acessa [documentos para o vue-loader](http://vuejs.github.io/vue-loader).
