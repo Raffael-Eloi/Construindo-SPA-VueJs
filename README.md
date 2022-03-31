@@ -31,7 +31,7 @@ npm run build
 + [x] CRUD 
 
 ## Pré-visualização
-(aqui vai ter um gif)
+![alura-pic2](https://user-images.githubusercontent.com/51720161/161081075-2bb32fc7-d621-439d-a03b-986a8ced761b.gif)
 
 ## Links úteis
 Acessar a Alura clique [aqui](https://www.alura.com.br/) .<br>
